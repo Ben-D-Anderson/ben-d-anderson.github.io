@@ -4,7 +4,8 @@ title: Projects
 permalink: /projects
 ---
 
-Here you can find short write-ups of the projects on [my GitHub page](https://github.com/Ben-D-Anderson).
+Here you can find short write-ups of the programming projects on [my GitHub page](https://github.com/Ben-D-Anderson).
+More information on each of the projects can be found in their respective GitHub repository.
 <div class="projects">
     <br/>
     {% for post in site.tags.project %}
