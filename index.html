@@ -4,20 +4,22 @@ title: Home
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
-  
-    <h1 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+  {% assign posts = site.posts %}
+  {% for post in posts %}
+    {% unless post.tags contains 'project' %}
+      <h1 class="post-title">
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+        </a>
+      </h1>
 
-    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date"
-      >{{ post.date | date_to_string }}</time
-    >
-    {{ post.content | strip_html | truncatewords: 30 }}...
-  <br/>
-  <br/>
-  <br/>
+      <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date"
+        >{{ post.date | date_to_string }}</time
+      >
+      {{ post.content | strip_html | truncatewords: 30 }}...
+      <br/>
+      <br/>
+      <br/>
+    {% endunless %}
   {% endfor %}
 </div>
