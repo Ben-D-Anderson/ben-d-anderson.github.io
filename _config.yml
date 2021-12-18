@@ -1,8 +1,8 @@
 # Setup
 title: Ben's Blog
 url: https://www.benanderson.xyz
-paginate: 0
-paginate_path: "/page:num/"
+#paginate: 1
+#paginate_path: "/page:num/"
 baseurl: ""
 permalink: pretty
 
@@ -42,5 +42,7 @@ version: 3.0.0
 
 # Navbar page list
 nav:
+  - title: Categories
+    url: /categories
   - title: About
     url: /about
