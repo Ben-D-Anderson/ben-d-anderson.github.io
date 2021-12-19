@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects
+description: A list of my open source software development projects
 permalink: /projects
 ---
 
@@ -15,9 +16,8 @@ More information on each of the projects can be found in their respective GitHub
             </a>
         </h2>
 
-        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date"
-        >{{ post.date | date_to_string }}</time
-        >
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+
         <br/>
     {% endfor %}
 </div>

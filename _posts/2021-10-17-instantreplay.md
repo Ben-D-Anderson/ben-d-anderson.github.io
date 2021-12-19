@@ -1,6 +1,7 @@
 ---
 layout: post
 title: InstantReplay
+description: Minecraft plugin to replay server events
 tags: project
 ---
 

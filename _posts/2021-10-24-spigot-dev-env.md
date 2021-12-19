@@ -1,6 +1,7 @@
 ---
 layout: post
 title: spigot-dev-env
+description: Python scripts to improve NMS workflow for Minecraft plugin developers
 tags: project
 ---
 

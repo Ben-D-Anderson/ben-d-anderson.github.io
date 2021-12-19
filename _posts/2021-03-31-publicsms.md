@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PublicSMS
+description: Anonymous sms conversation using public temporary phone numbers
 tags: project
 ---
 

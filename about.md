@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+description: A short introduction to the website
 permalink: /about
 ---
 
@@ -14,4 +15,4 @@ The content and opinions on this blog are completely my own and do not represent
 
 <br>
 
-Email: `contact@benanderson.xyz`
+Email: contact@benanderson.xyz
