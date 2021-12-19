@@ -28,6 +28,10 @@
 @import "pagination";
 @import "message";
 @import "toc";
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono-Regular.ttf");
+}
 
 // Sass for creating the swatches
 .colors {
