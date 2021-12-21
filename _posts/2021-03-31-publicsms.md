@@ -2,7 +2,7 @@
 layout: post
 title: PublicSMS
 description: Anonymous sms conversation using public temporary phone numbers
-readtime: 1
+readtime: 1 minute
 tags: project
 ---
 
