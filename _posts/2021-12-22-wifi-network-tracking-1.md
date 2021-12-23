@@ -110,6 +110,7 @@ from sys import argv
 import time
 import os
 import logging
+import json
 
 # script only supports linux due to command usage and pigps library
 
