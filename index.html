@@ -17,7 +17,7 @@ description: Personal blog for my software engineering and cyber security endeav
       <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date"
         >{{ post.date | date_to_string }}</time
       >
-      {{ post.content | strip_html | truncatewords: 30 }}...
+      {{ post.excerpt }}<a href="{{ post.url | relative_url }}">Read More<a>
       <br/>
       <br/>
       <br/>
