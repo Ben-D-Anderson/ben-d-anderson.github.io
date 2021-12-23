@@ -77,7 +77,9 @@ This yielded the following output of data (access point BSSIDs and SSIDs have be
 ...
 ```
 
-All results were as expected so I moved onto logging GPS location. I came across [this friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on the Raspberry Pi Foundation's website, detailing how to use a GPS dongle to geolocate yourself. I purchased [this GPS dongle](https://www.amazon.co.uk/ALAMSCN-G-mouse-Glonass-Raspberry-Compatible-White/dp/B09JJYD978/) and used it with the script in said article. However, for the first few seconds I ran the script I saw `0` as the latitude and longitude, and suspected it wasn't working. But in actual fact after around 10 seconds it began to function as expected, so that's something to look out for if you plan on utilising GPS geolocation with a GPS dongle.
+All results were as expected. If you did not get similar results from trying this then please note you need a wireless network adapter that supports monitor mode, and is in monitor mode (see: [enabling monitor mode](https://linuxhint.com/monitor_mode_kali_linux_2020/)). I am personally using the [Alfa Network AWUS036NHA USB WiFi Adapter](https://www.amazon.co.uk/gp/product/B004Y6MIXS/).
+
+Now time for logging GPS location. I came across [this friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on the Raspberry Pi Foundation's website, detailing how to use a GPS dongle to geolocate yourself. I purchased [this GPS dongle](https://www.amazon.co.uk/ALAMSCN-G-mouse-Glonass-Raspberry-Compatible-White/dp/B09JJYD978/) and used it with the script in said article. However, for the first few seconds I ran the script I saw `0` as the latitude and longitude, and suspected it wasn't working. But in actual fact after around 10 seconds it began to function as expected, so that's something to look out for if you plan on utilising GPS geolocation with a GPS dongle.
 
 I adapted the script in the article a little and tested the following:
 
