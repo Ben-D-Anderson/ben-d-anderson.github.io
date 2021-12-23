@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WiFi Network Tracking - Proof of Concept of Google's International Geolocation Network (Part 1)
+title: WiFi Network Tracking - Proof of Concept of Google's Geolocation Network (Part 1)
 description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate cyber security and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
 tags: programming, cybersecurity
@@ -15,7 +15,7 @@ I got the idea to do this project when watching [John Hammond's video](https://y
 My idea for this project is to have a go at logging WiFi router locations using WiFi signal strength and a starting GPS location, then using the data to track location (which will include some data manipulation and triangulation). I merely hope to see the plausability of a normal person deploying and experimenting with such technology and will not be building any sort of large scalable infrastructure like Google.
 
 ## Method of Approach
-I started off by looking at using a Raspberry Pi for this project as it's very portable - this would help when recording and saving WiFi router BSSIDs (a BSSID is a unique address that identifies an access point). I also found [this beginner friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on raspberrypi's website which describes how to record GPS coordinates of the raspberry pi in real time using a USB GPS dongle and the `pigps` python library.
+I started off by looking at using a Raspberry Pi for this project as it's very portable - this would help when recording and saving WiFi router BSSIDs (unique address that identifies an access point). I also found [this beginner friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on raspberrypi's website which describes how to record GPS coordinates of the raspberry pi in real time using a USB GPS dongle and the `pigps` python library.
 
 I have previously looked at WiFi lots when researching cyber security so I was already familiar with a tool called `airodump-ng` which allows you to sniff packets - including the BSSID and signal strength of access points. And at first, this was the tool I planned to use for this project. However, when researching I came across [this great resource](https://www.thepythoncode.com/article/building-wifi-scanner-in-python-scapy) which details using the python library `scapy` to list wireless access points.
 
