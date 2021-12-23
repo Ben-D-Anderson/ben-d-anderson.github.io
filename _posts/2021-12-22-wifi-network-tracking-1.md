@@ -1,7 +1,7 @@
 ---
 layout: post
 title: WiFi Network Tracking - Proof of Concept of Google's International Geolocation Network (Part 1)
-description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using cyber security and programming concepts - explaining design decisions made along the way.
+description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate cyber security and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
 tags: programming, cybersecurity
 ---
