@@ -1,12 +1,11 @@
 ---
 layout: post
-title: WiFi Network Tracking - Proof of Concept of Google's Geolocation Network (Part 1)
+title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 1)
 description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate cyber security and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
 tags: programming, cybersecurity
 ---
 
-## Context
 It's well known that Google builds WiFi router discovery into many of their products - most notably android. This gives them the ability to locate almost any WiFi router in the world.<!--excerpt--> Using IP address for location tracking is very much inferior to recording the locations of WiFi routers and using that to determine the location of an internet-connected device. Google's geolocation api using WiFi router BSSIDs can give location to an accuracy of around 20 metres (on average).
 
 I got the idea to do this project when watching [John Hammond's video](https://youtu.be/7LXfBSuaFFE?t=2169) with John Strand who talked a bit about the cyber security tool [HoneyBadger](https://github.com/lanmaster53/honeybadger/).
@@ -146,10 +145,10 @@ def callback(packet):
 
 	#log network information
 	last_locs[bssid] = (lat, lon)
-	entry = {'bssid': bssid, 'dBm': dbm_signal, 'latitude': lat, 'longitude': lon}
-	logging.debug(f'recording entry {entry} for network {ssid}')
-	with open('scan_data.csv', 'a') as data_file:
-		data_file.write(str(bssid) + "," + str(dbm_signal) + "," + str(lat) + "," + str(lon) + "\n")
+	entry = {'bssid': bssid, 'ssid': ssid, 'dBm': dbm_signal, 'latitude': lat, 'longitude': lon}
+	logging.debug(f'recording entry {entry}')
+	with open('scan_data', 'a') as data_file:
+		data_file.write(json.dumps(entry) + "\n")
 
 def change_channel():
 	ch = 1
@@ -199,7 +198,7 @@ if __name__ == "__main__":
 
 I made a few noteworthy modifications other than just combining the previous test scripts.
 
-Firstly, I've added a logger using python's basic `logging` library. The code for that is fairly self-explanatory and there is lots of [documentation](https://docs.python.org/3/howto/logging.html) for it online if you would like to know more about it. Also, all scan results are now written to the csv file `scan_data.csv` in the format `{BSSID},{dBm},{latitude},{longitude}`, instead of just being printed out.
+Firstly, I've added a logger using python's basic `logging` library. The code for that is fairly self-explanatory and there is lots of [documentation](https://docs.python.org/3/howto/logging.html) for it online if you would like to know more about it. Also, all scan results are now written to the file `scan_data` in a json format, instead of just being printed out.
 
 Secondly, the wireless interface used by the WiFi scanner is now passed into the program as an argument, for example: `python3 wifi_scan_gps.py wlan0`.  Furthermore, the script now automatically enables monitor mode on the wireless network adapter if it can, instead of having to enable it manually before running the script.
 
