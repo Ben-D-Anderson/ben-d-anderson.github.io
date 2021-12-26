@@ -1,7 +1,7 @@
 ---
 layout: post
 title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 1)
-description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate cyber security and programming skills - explaining design decisions made along the way.
+description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate WiFi knowledge and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
 tags: programming, cybersecurity
 ---
@@ -14,7 +14,7 @@ I got the idea to do this project when watching [John Hammond's video](https://y
 My idea for this project is to have a go at logging WiFi router locations using WiFi signal strength and a starting GPS location, then using the data to track location (which will include some data manipulation and triangulation). I merely hope to see the plausability of a normal person deploying and experimenting with such technology and will not be building any sort of large scalable infrastructure like Google.
 
 ## Method of Approach
-I started off by looking at using a Raspberry Pi for this project as it's very portable - this would help when recording and saving WiFi router BSSIDs (unique address that identifies an access point). I also found [this beginner friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on raspberrypi's website which describes how to record GPS coordinates of the raspberry pi in real time using a USB GPS dongle and the `pigps` python library.
+I started off by looking at using a Raspberry Pi for this project as it's very portable - this would help when recording and saving WiFi router BSSIDs. I also found [this beginner friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on raspberrypi's website which describes how to record GPS coordinates of the raspberry pi in real time using a USB GPS dongle and the `pigps` python library.
 
 I have previously looked at WiFi lots when researching cyber security so I was already familiar with a tool called `airodump-ng` which allows you to sniff packets - including the BSSID and signal strength of access points. And at first, this was the tool I planned to use for this project. However, when researching I came across [this great resource](https://www.thepythoncode.com/article/building-wifi-scanner-in-python-scapy) which details using the python library `scapy` to list wireless access points.
 
@@ -53,7 +53,7 @@ def change_channel():
 	while True:
 		# switch channel from 1 to 14 each 0.5s
 		os.system(f"iwconfig {interface} channel {ch}")
-		ch = ch % 14 + 1
+		ch = ch % 14 + 1 # only supports 2.4 GHz networks
 		time.sleep(0.5)  
 
 if __name__ == "__main__":
@@ -78,7 +78,7 @@ This yielded the following output of data (access point BSSIDs and SSIDs have be
 
 All results were as expected. If you did not get similar results from trying this then please note you need a wireless network adapter that supports monitor mode, and is in monitor mode (see: [enabling monitor mode](https://linuxhint.com/monitor_mode_kali_linux_2020/)). I am personally using the [Alfa Network AWUS036NHA USB WiFi Adapter](https://www.amazon.co.uk/gp/product/B004Y6MIXS/).
 
-Now time for logging GPS location. I came across [this friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on the Raspberry Pi Foundation's website, detailing how to use a GPS dongle to geolocate yourself. I purchased [this GPS dongle](https://www.amazon.co.uk/ALAMSCN-G-mouse-Glonass-Raspberry-Compatible-White/dp/B09JJYD978/) and used it with the script in said article. However, for the first few seconds I ran the script I saw `0` as the latitude and longitude, and suspected it wasn't working. But in actual fact after around 10 seconds it began to function as expected, so that's something to look out for if you plan on utilising GPS geolocation with a GPS dongle.
+Now time for logging GPS location. I came across [this friendly guide](https://www.raspberrypi.org/app/uploads/2017/10/OYCSU_GPS.v2-1.pdf) on the Raspberry Pi Foundation's website, detailing how to use a GPS dongle to geolocate yourself. I purchased [this GPS dongle](https://www.amazon.co.uk/ALAMSCN-G-mouse-Glonass-Raspberry-Compatible-White/dp/B09JJYD978/) and used it with the script in said article. However, for the first few seconds I ran the script I saw `0` as the latitude and longitude, and suspected it wasn't working. But in actual fact after around 1 minute it began to function as expected, so that's something to look out for if you plan on utilising GPS geolocation with a GPS dongle.
 
 I adapted the script in the article a little and tested the following:
 
@@ -133,8 +133,8 @@ def callback(packet):
 	#round latitude and longitude to 5 decimal places
 	#see https://lm.solar/heliostats/support/decimal-latitude-longitude-accuracy/
 	latlon_dp_acc = 5
-	lat = round(gps.lat * 10**latlon_dp_acc) / 10**latlon_dp_acc
-	lon = round(gps.lon * 10**latlon_dp_acc) / 10**latlon_dp_acc
+	lat = round(gps.lat, latlon_dp_acc)
+	lon = round(gps.lon, latlon_dp_acc)
 	if lat == 0 or lon == 0:
 		logging.debug('dropping packet due to gps not loaded (lat or long == 0)')
 		return
