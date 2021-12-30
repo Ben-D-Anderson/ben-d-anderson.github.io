@@ -1,5 +1,6 @@
 # Setup
 title: Ben's Blog
+description: I'm Ben Anderson and this is my personal blog for my software engineering and cyber security endeavours.
 url: https://www.benanderson.xyz
 #paginate: 1
 #paginate_path: "/page:num/"
