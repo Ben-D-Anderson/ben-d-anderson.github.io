@@ -10,14 +10,16 @@ More information on each of the projects can be found in their respective GitHub
 <div class="projects">
     <br/>
     {% for post in site.tags.project %}
-        <h2 class="post-title">
-            <a href="{{ post.url | relative_url }}">
-                {{ post.title }}
-            </a>
-        </h2>
+        {% unless post.tags contains 'unlisted' %}
+			<h2 class="post-title">
+            	<a href="{{ post.url | relative_url }}">
+            	    {{ post.title }}
+        	    </a>
+    	    </h2>
 
-        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
-
-        <br/>
+	        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+	
+	        <br/>
+		{% endunless %}
     {% endfor %}
 </div>
