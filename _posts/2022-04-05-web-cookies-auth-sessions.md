@@ -39,8 +39,6 @@ Let's imagine you login to a website with the username `user1`, the site could c
 
 However, this is a very insecure way to save the user's account to a cookie due to the fact that a user can change their cookies. User A could simply change the value of the `account` cookie stored on their machine to be user B's username, then user A would have full access to user B's account.
 
-This type of vulnerability can be seen in [this demonstration website](https://live.benanderson.xyz/AuthCookieSecurityDemo/), see if you can become the admin account by messing with the cookies on the website.
-
 A few developers may believe a solution to the problem posed above is to simply attach the user's password to the cookie and confirm their credentials are correct on the website's backend. Whilst this seemingly works on the surface, it opens a plethera of other potential vulnerabilities that need to be closely analysed as to their potential impact on both the website itself and the end-user. For example, if there was a cross-site scripting (XSS) vulnerability elsewhere on the website and the cookie wasn't properly secured, then a malicious actor could steal the credentials of all the site's users. Another issue to consider is the possiblity of the user's device becoming compromised, their password will instantly belong to the actor that compromised their system as cookies are stored on the user's machine in plain-text.
 
 Due to aforementioned reasons, and others, attaching a password to the cookie is not a recommended solution - and certainly not accepted as best practice.
