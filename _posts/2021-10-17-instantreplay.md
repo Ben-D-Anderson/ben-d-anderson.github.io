@@ -3,6 +3,7 @@ layout: post
 title: InstantReplay
 description: Minecraft plugin to replay server events
 readtime: 2 minute
+toc: true
 tags: project
 ---
 

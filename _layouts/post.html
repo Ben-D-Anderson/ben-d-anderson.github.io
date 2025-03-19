@@ -5,5 +5,8 @@ layout: default
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }} &middot; {{ page.readtime }} read</time>
+  <h3 class="toc__heading">Table of Contents</h3>
+  {% include toc.html html=content item_class="toc__element" class="toc__list" h_min=2 h_max=4 submenu_class="toc__sublist" %}
+  <hr />
   {{ content }}
 </article>

@@ -3,6 +3,7 @@ layout: post
 title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 1)
 description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate WiFi knowledge and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
+toc: true
 tags: programming, cybersecurity
 ---
 

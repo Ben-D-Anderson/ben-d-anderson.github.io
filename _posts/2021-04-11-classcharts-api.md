@@ -3,6 +3,7 @@ layout: post
 title: ClassCharts API
 description: API to interact with ClassCharts through Java
 readtime: 30 second
+toc: true
 tags: project
 ---
 

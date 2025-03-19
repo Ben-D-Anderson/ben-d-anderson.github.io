@@ -3,6 +3,7 @@ layout: post
 title: Web Security Basics - Cookies & Authenticated Sessions
 description: Here we discuss the basics regarding how websites store a user session and keep you logged in - with a focus on ensuring security.
 readtime: 6 minute
+toc: true
 tags: cybersecurity, programming
 ---
 

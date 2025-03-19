@@ -3,6 +3,7 @@ layout: post
 title: How To Achieve Dynamic Redirect URIs [OAuth2]
 description: Demonstrating how to overcome the whitelist restriction for redirect URIs in the OAuth2 protocol. This method involves using an intermediary URL propagator and re-purposing the OAuth2 `state` parameter.
 readtime: 5 minute
+toc: true
 tags: programming
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 2)
 description: Having recorded WiFi network geolocation information, I'll now be writing software to filter and manipulate that data. This will allow us to locate WiFi networks using just their SSID or BSSID.
 readtime: 10 minute
+toc: true
 tags: programming, cybersecurity
 ---
 
