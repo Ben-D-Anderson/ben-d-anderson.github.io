@@ -3,7 +3,7 @@ layout: post
 title: Differences Between Intermediate And Enterprise Code
 description: Here I discuss the design and style differences between an individual's intermediate code and a skilled team's enterprise code. I'll also suggest strategies that can be used to ensure developed projects are high quality.
 readtime: 7 minute
-toc: true
+toc: false
 tags: programming
 ---
 
