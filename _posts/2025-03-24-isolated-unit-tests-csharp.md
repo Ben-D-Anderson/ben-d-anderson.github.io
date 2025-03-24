@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Isolating C# Unit Tests Using Application Domains [.NET Framework]
-description: Running unit tests in isolated application domains, thus providing the ability to test a singleton-oriented codebase as if each unit test was running in a new instance of the application.
+description: Running unit tests in isolated application domains, thus providing the ability to test a singleton-oriented code base as if each unit test was running in a new instance of the application.
 readtime: 6 minute
 toc: true
 tags: programming
