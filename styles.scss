@@ -27,7 +27,6 @@
 @import "posts";
 @import "pagination";
 @import "message";
-@import "toc";
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../assets/fonts/JetBrainsMono-Regular.ttf");
@@ -48,6 +47,10 @@
   dd {
     margin-left: var(--spacer);
   }
+}
+
+.highlight {
+ font-size: 1rem;
 }
 
 .toc__heading {

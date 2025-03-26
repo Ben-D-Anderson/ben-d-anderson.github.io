@@ -7,6 +7,10 @@ toc: true
 tags: programming
 ---
 
+IsolatedAction.cs final code: [gist.github.com](https://gist.github.com/Ben-D-Anderson/517d164511827af647eaeeac68c6f0fb)
+
+<br />
+
 Code that executes in a new [AppDomain](https://learn.microsoft.com/en-us/dotnet/api/system.appdomain?view=net-9.0) has a completely detached state from the originating application domain - even all static attributes take their default values. This behaviour is only really comparible to stopping the application and re-running it.
 
 In this blog post, I will demonstrate how to use this functionality to unit test singleton classes which can only be initialised once, and don't provide any sort of clean-up or teardown methods. The techniques used to achieve this behavior are **only** available in .NET Framework.<!--excerpt-->
