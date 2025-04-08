@@ -1,7 +1,7 @@
 # Setup
 title: Ben's Blog
 description: I'm Ben Anderson and this is my technical blog.
-url: https://www.benanderson.xyz
+url: https://www.benanderson.co.uk
 #paginate: 1
 #paginate_path: "/page:num/"
 baseurl: ""
@@ -40,7 +40,7 @@ google_analytics: G-Z4LRYCGZSX
 author:
   name: Ben Anderson
   url: https://github.com/Ben-D-Anderson
-  email: contact@benanderson.xyz
+  email: contact@benanderson.co.uk
 
 # Custom vars
 version: 3.0.0

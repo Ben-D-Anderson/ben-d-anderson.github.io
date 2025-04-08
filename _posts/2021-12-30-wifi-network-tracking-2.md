@@ -342,4 +342,4 @@ This project is merely a tool which can be utilised in many different ways. Comp
 #### Closing Thoughts
 Overall, our solution isn't perfect, and obviously isn't as sophisticated as Google Maps' location network. But that's alright, this is just a proof of concept to demonstrate the capabilities of this kind of technology - and with more data, it'd get more precise.
 
-Thanks for reading, feel free to contact me with any queries about this mini-project: `contact@benanderson.xyz`
+Thanks for reading, feel free to contact me with any queries about this mini-project: `contact@benanderson.co.uk`

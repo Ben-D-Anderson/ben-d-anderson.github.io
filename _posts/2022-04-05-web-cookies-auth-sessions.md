@@ -22,7 +22,7 @@ Because of the fact that cookies are stored client-side (on the user's computer)
 - In the opened panel, select the following tab depending on your browser:
 	- `Application` if you are on Chrome or Microsoft Edge
 	- `Storage` if you are on Firefox
-- On the sidebar, select `Cookies` and click on `www.benanderson.xyz`
+- On the sidebar, select `Cookies` and click on `www.benanderson.co.uk`
 
 Below is a visual to demonstrate this process on Microsoft Edge:
 
