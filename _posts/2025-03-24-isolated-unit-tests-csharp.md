@@ -7,7 +7,7 @@ toc: true
 tags: programming
 ---
 
-IsolatedAction.cs final code: [gist.github.com](https://gist.github.com/Ben-D-Anderson/517d164511827af647eaeeac68c6f0fb)
+**IsolatedAction.cs** final code: [gist.github.com](https://gist.github.com/Ben-D-Anderson/517d164511827af647eaeeac68c6f0fb)
 
 <br />
 
@@ -30,14 +30,14 @@ public class Isolated<T> : IDisposable where T : MarshalByRefObject
 
     public Isolated()
     {
-        _domain = AppDomain.CreateDomain("Isolated:" + Guid.NewGuid(), 
+        _domain = AppDomain.CreateDomain("Isolated:" + Guid.NewGuid(),
             null, AppDomain.CurrentDomain.SetupInformation);
 
         Type type = typeof(T);
- 
+
         CrossDomainObject = (T)_domain.CreateInstanceAndUnwrap(type.Assembly.FullName, type.FullName);
     }
- 
+
     /// <exception cref="CannotUnloadAppDomainException">
     /// When the code running in the AppDomain refuses to shutdown/finalise.
     /// </exception>
@@ -77,7 +77,7 @@ public class Worker : MarshalByRefObject
     {
         //this code runs in an isolated AppDomain, with the supplied parameters
     }
-} 
+}
 ```
 
 ### Executing Arbitrary Actions
@@ -223,7 +223,7 @@ public class Worker : MarshalByRefObject
                 + "Real Stack Trace:" + Environment.NewLine
                 + e.StackTrace);
         }
-        return null;  
+        return null;
     }
 }
 ```
@@ -380,7 +380,7 @@ public void RunUnisolatedThenIsolatedAction()
     Action existingAction = ...;
     //this will run in the current AppDomain
     existingAction.Invoke();
-    
+
     //same as the original action but wrapped in isolation code
     Action isolatedAction = IsolatedAction.Wrap(existingAction);
     //this will run in an isolated AppDomain

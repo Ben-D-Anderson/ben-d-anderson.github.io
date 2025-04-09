@@ -1,5 +1,5 @@
 # Setup
-title: Ben's Blog
+title: Ben's Technical Blog
 description: I'm Ben Anderson and this is my technical blog.
 url: https://www.benanderson.co.uk
 #paginate: 1
@@ -47,7 +47,7 @@ version: 3.0.0
 
 # Navbar page list
 nav:
-  - title: Blog
+  - title: Articles
     url: /
   - title: About
     url: /about
