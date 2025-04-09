@@ -9,12 +9,30 @@
   </title>
 
   <link rel="stylesheet" href="{{ 'styles.css' | relative_url }}" />
-  <link
-    rel="apple-touch-icon-precomposed"
-    sizes="144x144"
-    href="{{ '/assets/apple-touch-icon-precomposed.png' | relative_url }}"
-  />
   <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}" />
+
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+
+  <!-- For Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
+
+  <!-- For Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+
+  <!-- Web App Manifest Icon (PWA) -->
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+
+  <!-- Link to the web manifest -->
+  <link rel="manifest" href="/assets/site.webmanifest">
+
   <link
     rel="alternate"
     type="application/atom+xml"
@@ -22,5 +40,5 @@
     href="{{ 'atom.xml' | relative_url }}"
   />
 
-  {% seo title=false %}
+  {% seo %}
 </head>
