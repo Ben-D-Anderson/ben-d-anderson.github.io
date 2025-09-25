@@ -7,7 +7,7 @@ permalink: /about
 
 Hello, my name is Ben Anderson. I'm a software engineer from the United Kingdom.
 
-This is my technical blog where I write about programming and cyber security.
+This is my technical blog where I write about programming.
 
 The content and opinions on this blog are completely my own and do not represent any entity or organisation that I work for.
 

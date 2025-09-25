@@ -4,7 +4,7 @@ title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 2)
 description: Having recorded WiFi network geolocation information, I'll now be writing software to filter and manipulate that data. This will allow us to locate WiFi networks using just their SSID or BSSID.
 readtime: 10 minute
 toc: true
-tags: programming, cybersecurity
+tags: programming, cybersecurity, python
 ---
 
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -102,7 +102,7 @@ class EntryManager:
             if entry['bssid'] == search_term or entry['ssid'] == search_term:
                 found_entries.append(entry)
         return found_entries
-    
+
     def select_network_bssid(entries):
         unique_entries = {}
         for entry in entries:
@@ -118,7 +118,7 @@ class EntryManager:
         for bssid in unique_entries.keys():
             print('\t' + bssid + ' (' + str(unique_entries[bssid]) + ' entries)')
         return input('Enter the BSSID: ')
-    
+
     def filter_by_bssid(entries, bssid):
         filtered = []
         for entry in entries:
@@ -180,7 +180,7 @@ class EntryManager:
             if entry['bssid'] == search_term or entry['ssid'] == search_term:
                 found_entries.append(entry)
         return found_entries
-    
+
     def select_network_bssids(entries):
         unique_entries = {}
         for entry in entries:
@@ -200,7 +200,7 @@ class EntryManager:
             return list(unique_entries.keys())
         else:
             return [bssid]
-    
+
     def filter_by_bssids(entries, bssids):
         filtered = []
         for entry in entries:
@@ -251,7 +251,7 @@ class MapPlotter:
         for c in circles:
             gmap.circle(c.latitude, c.longitude, c.radius, face_alpha=0.2, face_color='#00FFFF')
         gmap.draw(out_file)
-    
+
     def is_circle_in_circle(c1, c2):
         distSq = (((c1.latitude - c2.latitude)*(c1.latitude - c2.latitude))+((c1.longitude - c2.longitude)* (c1.longitude - c2.longitude)))**(.5)
         if (distSq + c2.radius <= c1.radius):
@@ -277,7 +277,7 @@ The circles on the drawn map represent the possible area of the selected WiFi ne
 
 Also, using the math proposed by [this article](https://www.geeksforgeeks.org/check-if-a-circle-lies-inside-another-circle-or-not/) allowed me to check if a circle was fully inside of another circle. This was implemented to ensure we see the most accurate possible readings and reduce the number of massive inaccurate circles. My implementation isn't perfect thought, there are cases where circles are hidden, despite the fact that they further decrease the possible network area. However, creating a perfect solution would be very difficult, time-consuming and overkill for what we are trying to achieve here.
 
-A change I made to the solution in general, was giving the ability to use multiple WiFi networks when drawing the map - this was done to support mesh networks and is handled by the `select_network_bssids` method. 
+A change I made to the solution in general, was giving the ability to use multiple WiFi networks when drawing the map - this was done to support mesh networks and is handled by the `select_network_bssids` method.
 
 ## Initial Demonstration
 By driving down the yellow road in the image below, I captured 5 entries for a network which, when entered into the program, produced the below map (all text has been removed for privacy and security). The blue circle represents the area where the WiFi network could be located. I have also denoted the actual location of the WiFi network with a red cross for comparison.

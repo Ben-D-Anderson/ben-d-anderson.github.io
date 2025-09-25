@@ -4,7 +4,7 @@ title: WiFi Network Tracking - Imitating Google's Geolocation Network (Part 1)
 description: Breaking down Google's international geolocation network and building a proof of concept from the ground up using intermediate WiFi knowledge and programming skills - explaining design decisions made along the way.
 readtime: 9 minute
 toc: true
-tags: programming, cybersecurity
+tags: programming, cybersecurity, python
 ---
 
 It's well known that Google builds WiFi router discovery into many of their products - most notably android. This gives them the ability to locate almost any WiFi router in the world.<!--excerpt--> Using IP address for location tracking is very much inferior to recording the locations of WiFi routers and using that to determine the location of an internet-connected device. Google's geolocation api using WiFi router BSSIDs can give location to an accuracy of around 20 metres (on average).
@@ -55,7 +55,7 @@ def change_channel():
 		# switch channel from 1 to 14 each 0.5s
 		os.system(f"iwconfig {interface} channel {ch}")
 		ch = ch % 14 + 1 # only supports 2.4 GHz networks
-		time.sleep(0.5)  
+		time.sleep(0.5)
 
 if __name__ == "__main__":
 	interface = "wlan0"
@@ -165,7 +165,7 @@ if __name__ == "__main__":
 	#create logging file and config
 	log_file = 'scan-log_' + time.strftime('%Y-%m-%d_%H-%M-%S') + '.log'
 	logging.basicConfig(filename=log_file, format='[%(asctime)s] [%(levelname)s] %(message)s', level=logging.DEBUG)
-	
+
 	#take wireless interface in as command line argument
 	if len(argv) > 1:
 		interface = argv[1]
@@ -173,28 +173,28 @@ if __name__ == "__main__":
 		logging.error('Please specify wireless interface')
 		print('[!] Please specify wireless interface')
 		exit()
-	
+
 	#put wireless interface into monitor mode
 	logging.info('Putting wireless interface into monitor mode...')
 	os.system(f"sudo ifconfig {interface} down")
 	os.system(f"sudo iwconfig {interface} mode monitor")
 	os.system(f"sudo ifconfig {interface} up")
 	logging.info('Wireless interface put into monitor mode')
-	
+
 	#start GPS
 	logging.info('Launching GPS...')
 	gps = GPS() #if doesn't work try passing 'dev' parameter with path to gps dongle
 	logging.info('GPS Launched')
-	
-	#start wireless adapter channel switcher	
-	logging.info('Launching wireless adapter channel switcher...')	
-	channel_changer = Thread(target=change_channel)	
-	channel_changer.daemon = True	
-	channel_changer.start()	
+
+	#start wireless adapter channel switcher
+	logging.info('Launching wireless adapter channel switcher...')
+	channel_changer = Thread(target=change_channel)
+	channel_changer.daemon = True
+	channel_changer.start()
 	logging.info('Wireless adapter channel switcher launched')
 
-	#start sniffing packets to find networks	
-	logging.info('Started sniffing packets')	
+	#start sniffing packets to find networks
+	logging.info('Started sniffing packets')
 	sniff(prn=callback, iface=interface)
 ```
 
