@@ -13,24 +13,24 @@ In the case that you are required to render a custom checkmark for use in someth
 
 To fill an area where the bottom-left corner is (0, 0):
 - `THICKNESS` = `HEIGHT / 5`
-
+- `CENTERING_OFFSET` = `HEIGHT / 1.5 - WIDTH / 2 - THICKNESS * sin(45) / 2 - THICKNESS * sqrt(2) / 4`
 - **A** - inner left
   - x = `THICKNESS * cos(45)`
-  - y = `HEIGHT / 2`
+  - y = `HEIGHT / 2 + CENTERING_OFFSET`
 - **B** - outer left
   - x = `0`
-  - y = `HEIGHT / 2 - THICKNESS * sin(45)`
+  - y = `HEIGHT / 2 - THICKNESS * sin(45) + CENTERING_OFFSET`
 - **C** - outer elbow
-  - x = `HEIGHT / 2 - THICKNESS * sin(45)`
-  - y = `0`
+  - x = `HEIGHT / 2 - THICKNESS * sin(45) + CENTERING_OFFSET`
+  - y = `0 + CENTERING_OFFSET`
 - **D** - outer right
   - x = `WIDTH`
-  - y = `WIDTH + THICKNESS * sin(45) - HEIGHT / 3`
+  - y = `WIDTH + THICKNESS * sin(45) - HEIGHT / 3 + CENTERING_OFFSET`
 - **E** - inner right
   - x = `WIDTH - THICKNESS * sqrt(2) / 2`
-  - y = `WIDTH - HEIGHT / 3 + THICKNESS * sin(45) + THICKNESS * sqrt(2) / 2`
+  - y = `WIDTH - HEIGHT / 3 + THICKNESS * sin(45) + THICKNESS * sqrt(2) / 2 + CENTERING_OFFSET`
 - **F** - inner elbow
   - x = `HEIGHT / 2 - THICKNESS * sin(45)`
-  - y = `THICKNESS * sqrt(2)`
+  - y = `THICKNESS * sqrt(2) + CENTERING_OFFSET`
 
 It's also worth noting that if you are planning to render the above checkmark using a graphics library then you may need to prepend `HEIGHT - (...)` to all the Y-values as graphics libraries typically consider the top of the screen to be Y=0 and the bottom to be Y=HEIGHT.
