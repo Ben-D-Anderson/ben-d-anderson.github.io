@@ -24,7 +24,22 @@
 
 // Navbar styles
 .nav {
+  display: flex;
+  gap: 2rem;
   float: right;
-  line-height: 1.25rem;
-  word-spacing: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .masthead-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .nav {
+    float: none;
+    flex-wrap: wrap;
+  }
 }

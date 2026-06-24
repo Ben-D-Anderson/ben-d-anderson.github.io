@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Home
-description: Personal blog for my software engineering and cyber security endeavours.
+description: Personal blog for my software engineering endeavours.
 ---
 
 <div class="posts">
   {% assign posts = site.posts %}
   {% for post in posts %}
-    {% unless post.tags contains 'project' or post.tags contains 'unlisted' %}
+    {% unless post.tags contains 'unlisted' %}
       <h1 class="post-title">
         <a href="{{ post.url | relative_url }}">
           {{ post.title }}

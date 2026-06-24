@@ -1,0 +1,146 @@
+---
+layout: default
+title: Reading
+description: My personal reading history of technical books.
+---
+
+<style>
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.book-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 0.75rem;
+  background: #181818;
+  border-radius: 8px;
+  margin: 0 0 1rem 0;
+}
+
+.book-list-cover {
+  width: 160px;
+  height: auto;
+}
+
+.book-cover {
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-size: 1.5rem;
+}
+
+.book-author {
+  margin: 0.25rem 0 0;
+  color: #AAA;
+}
+
+.book-year {
+  margin: 0.1rem 0 0;
+  color: #AAA;
+}
+
+.favourites-container {
+  width: fit-content;
+  padding: 1rem 1rem 0.6rem 1rem;
+  background: #181818;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.favourites-grid {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.favourites-text {
+  margin: 0 0 1rem 0;
+}
+
+#favourites {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.favourites-grid img {
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 280px;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 700px) {
+  .book-container {
+    flex-direction: column;
+    gap: 0rem;
+  }
+
+  .book-list-cover {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .favourites-grid {
+    overflow-x: auto;
+  }
+}
+
+</style>
+
+<div id="favourites">
+  <div class="favourites-container">
+    <h2 class="favourites-text">Favourites</h2>
+    <div class="favourites-grid">
+      {% assign books = site.books | reverse %}
+      {% for book in books %}
+        {% if book.tags contains 'favourite' %}
+          <a href="#{{ book.url | relative_url }}">
+            <img class="book-cover favourites-cover" src="{{ book.cover }}" alt="{{ book.title }} cover">
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<br />
+<h1>My Reading History</h1>
+<br />
+
+<div class="books">
+  {% assign books = site.books | reverse %}
+  {% for book in books %}
+    {% unless book.tags contains 'unlisted' %}
+      <a href="{{ book.link }}">
+        <div id="{{ book.url | relative_url }}" class="book-container">
+          <img class="book-cover book-list-cover" src="{{ book.cover }}" alt="{{ book.title }} cover">
+
+          <div class="book-details">
+            <h1 class="book-title">
+                {{ book.title }}
+            </h1>
+
+            <p class="book-author">Author(s): {{ book.author }}</p>
+            <p class="book-year">Year: {{ book.year }}</p>
+          </div>
+        </div>
+      </a>
+    {% endunless %}
+  {% endfor %}
+</div>

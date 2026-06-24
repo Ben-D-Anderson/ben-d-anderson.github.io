@@ -42,6 +42,10 @@ author:
   url: https://github.com/Ben-D-Anderson
   email: contact@benanderson.co.uk
 
+collections:
+  books:
+    output: true
+
 # Custom vars
 version: 3.0.0
 
@@ -49,5 +53,7 @@ version: 3.0.0
 nav:
   - title: Articles
     url: /
+  - title: Reading
+    url: /reading
   - title: About
     url: /about
